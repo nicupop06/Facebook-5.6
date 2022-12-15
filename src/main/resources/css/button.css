@@ -1,0 +1,34 @@
+
+
+.button {
+    -fx-background-color:
+            #30D5C8,
+            rgba(0,0,0,0.05),
+            linear-gradient(#18dcd7 0%, #23e8db 20%, #2ff3e0 80%, #3bffe5 100%);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 25;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+.button Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+}
+
+.button:hover {
+    -fx-background-color:
+            #30D5C8,
+            rgba(0,0,0,0.05),
+            linear-gradient(#18dcd7 0%, #23e8db 20%, #2ff3e0 80%, #3bffe5 100%);
+    -fx-background-insets: 0,9 9 8 9,9,0,11;
+    -fx-background-radius: 25;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}

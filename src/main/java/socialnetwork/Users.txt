@@ -1,0 +1,7 @@
+eaf6d9ac-24a0-40eb-9cc5-b615498e71ed;Suciu;Claudiu;suciucl@gmail.com;claudiu
+475a70b7-1065-45a5-949f-518eca8273ac;Mircean;David;mircdavid@gmail.com;david
+4a658f62-f578-440f-93d1-d9c691aa8b28;Popa;Cosmin;popacosmin22@yahoo.com;cosmin2
+5e9e0b96-11c1-4bf1-ba01-ec53fd3be786;Pintiliciuc;Ana Maria;pintiliana@gmail.com;ana
+a4beb2be-9db9-4da0-b233-b4eb078ca835;Paslaru;Gabriel;pgaby@gmail.com;gabriel
+2b5c4229-84dc-4b73-8a9d-f9b3bceadaf6;Popa;Cosmin;popa@gmail.com;cosmin
+213ad312-3ff7-4f48-b24d-93ff5d5076ab;Perta;Rares;perta.rares@gmail.com;rares
