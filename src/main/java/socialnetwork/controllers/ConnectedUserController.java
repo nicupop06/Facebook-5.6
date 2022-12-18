@@ -2,8 +2,6 @@ package socialnetwork.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import socialnetwork.domain.Friendship;
 import socialnetwork.domain.User;
 import socialnetwork.service.Service;
 
@@ -127,6 +124,20 @@ public class ConnectedUserController implements Initializable {
         suggestionsController.setService(service);
         suggestionsController.setUser(connectedUser);
         suggestionsController.fillSuggestionsTable();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void handlePendingRequests(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/pendingRequests.fxml"));
+        root = loader.load();
+        PendingRequestsController pendingRequestsController = loader.getController();
+        pendingRequestsController.setService(service);
+        pendingRequestsController.setUser(connectedUser);
+        pendingRequestsController.fillPendingRequestsTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
