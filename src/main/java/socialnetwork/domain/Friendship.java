@@ -39,6 +39,8 @@ public class Friendship extends socialnetwork.domain.Entity<UUID> {
 
     }
 
+    public Friendship() {}
+
     public Friendship(UUID id, UUID id1, UUID id2, String status, String date) {
         this.setId(id);
 

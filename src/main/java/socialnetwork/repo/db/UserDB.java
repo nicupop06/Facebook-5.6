@@ -2,7 +2,6 @@ package socialnetwork.repo.db;
 
 import socialnetwork.domain.User;
 import socialnetwork.domain.validators.Validator;
-import socialnetwork.domain.validators.exceptions.ValidationException;
 import socialnetwork.repo.Repository;
 
 import java.sql.*;
