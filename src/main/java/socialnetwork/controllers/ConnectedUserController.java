@@ -148,6 +148,7 @@ public class ConnectedUserController implements Initializable {
         root = loader.load();
         SuggestionsController suggestionsController = loader.getController();
         suggestionsController.setService(service);
+        suggestionsController.setMessageService(messageService);
         suggestionsController.setUser(connectedUser);
         suggestionsController.fillSuggestionsTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
