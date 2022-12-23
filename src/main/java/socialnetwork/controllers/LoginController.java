@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import socialnetwork.domain.User;
 import socialnetwork.domain.validators.UserValidator;
+import socialnetwork.service.MessageService;
 import socialnetwork.service.Service;
 import socialnetwork.domain.validators.exceptions.ValidationException;
 
@@ -23,6 +24,8 @@ import java.io.IOException;
 
 public class LoginController {
     private Service service;
+
+    private MessageService messageService;
 
     private Stage stage;
     private Scene scene;
@@ -68,6 +71,7 @@ public class LoginController {
                         ConnectedUserController connectedUserController = loader.getController();
                         connectedUserController.setUser(u);
                         connectedUserController.setService(service);
+                        connectedUserController.setMessageService(messageService);
                         connectedUserController.displayConnectedUser(u.getFullName());
                         connectedUserController.fillTable();
 
@@ -124,6 +128,10 @@ public class LoginController {
 
 
         }
+
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
 }
 
 

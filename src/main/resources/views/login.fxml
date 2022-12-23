@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" prefHeight="379.0" prefWidth="670.0" style="-fx-background-color: #04AEC4; -fx-border-color: black; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.LoginController">
+<AnchorPane focusTraversable="true" prefHeight="379.0" prefWidth="670.0" style="-fx-background-color: #04AEC4; -fx-border-color: black; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.LoginController">
    <children>
       <TextField fx:id="emailField" layoutX="56.0" layoutY="162.0" prefHeight="26.0" prefWidth="207.0" promptText="Email" />
       <PasswordField fx:id="passwordField" layoutX="56.0" layoutY="209.0" prefHeight="26.0" prefWidth="207.0" promptText="Password" />

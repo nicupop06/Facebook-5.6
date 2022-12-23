@@ -5,21 +5,14 @@ import socialnetwork.domain.User;
 import socialnetwork.domain.validators.exceptions.FriendshipException;
 import socialnetwork.domain.validators.exceptions.ValidationException;
 import socialnetwork.repo.Repository;
-import socialnetwork.utils.events.ChangeEventType;
-import socialnetwork.utils.events.UserEntityChangeEvent;
-import socialnetwork.utils.observers.Observable;
-import socialnetwork.utils.observers.Observer;
-
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
-public class Service implements Observable<UserEntityChangeEvent> {
+public class Service {
     private Repository<UUID, User> userRepo;
 
-    private List<Observer<UserEntityChangeEvent>> observers=new ArrayList<>();
     private Repository<UUID, Friendship> friendRepo;
 
     public Service(Repository<UUID, User> userRepo, Repository<UUID, Friendship> friendRepo) {
@@ -69,7 +62,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
         );
     }
 
-
     /**
      *
      * @param lastName must not be null
@@ -85,8 +77,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
             }
         }
         if(ok==0){
-            UserEntityChangeEvent event = new UserEntityChangeEvent(ChangeEventType.ADD, user);
-            notifyObservers(event);
             userRepo.save(user);
         }
         else
@@ -96,7 +86,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
 
     public void updateUser(User newUser) {
         userRepo.update(newUser);
-        notifyObservers(new UserEntityChangeEvent(ChangeEventType.UPDATE, newUser));
     }
 
     public void updateFriendship(Friendship f){
@@ -123,7 +112,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
         }
     }
 
-
     /**
      *
      * @param user user must not be null
@@ -135,7 +123,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
         removeFriendsForUser(user);
         removeFriendships(id);
         userRepo.delete(id);
-        notifyObservers(new UserEntityChangeEvent(ChangeEventType.DELETE, user));
 
 
     }
@@ -149,8 +136,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
 
         return userRepo.findOne(id);
     }
-
-
 
     /**
      *
@@ -201,7 +186,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
         }
     }
 
-
     /**
      *
      * @param f f must not be null
@@ -232,8 +216,6 @@ public class Service implements Observable<UserEntityChangeEvent> {
         }
         friendRepo.save(newFriendship);
     }
-
-
 
     /**
      *
@@ -272,22 +254,8 @@ public class Service implements Observable<UserEntityChangeEvent> {
 
     }
 
-    @Override
-    public void addObserver(Observer<UserEntityChangeEvent> e) {
-        observers.add(e);
 
-    }
 
-    @Override
-    public void removeObserver(Observer<UserEntityChangeEvent> e) {
-        //observers.remove(e);
-    }
-
-    @Override
-    public void notifyObservers(UserEntityChangeEvent t) {
-
-        observers.stream().forEach(x->x.update(t));
-    }
 
 
 }

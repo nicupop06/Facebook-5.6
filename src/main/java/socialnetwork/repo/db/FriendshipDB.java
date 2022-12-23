@@ -65,7 +65,7 @@ public class FriendshipDB implements Repository<UUID, Friendship> {
     @Override
     public Friendship save(Friendship f) {
         validator.validate(f);
-        String sql = "INSERT INTO \"Friendships\" (id, id1, id2, status, friends_from) VALUES (?, ?, ?,?, ?)";
+        String sql = "INSERT INTO \"Friendships\" (id, id1, id2, status, friends_from) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(url, username, password);
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setObject(1, f.getId());

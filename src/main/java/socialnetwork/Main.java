@@ -9,11 +9,14 @@ import socialnetwork.controllers.LoginController;
 import socialnetwork.domain.validators.FriendshipValidator;
 import socialnetwork.domain.validators.UserValidator;
 import socialnetwork.repo.db.FriendshipDB;
+import socialnetwork.repo.db.MessageDB;
 import socialnetwork.repo.db.UserDB;
+import socialnetwork.service.MessageService;
 import socialnetwork.service.Service;
 import socialnetwork.ui.UI;
 
 import java.io.IOException;
+import java.util.UUID;
 
 
 public class Main extends Application  {
@@ -27,6 +30,8 @@ public class Main extends Application  {
             new FriendshipDB("jdbc:postgresql://localhost:5432/facebook", "postgres", "postgres", new FriendshipValidator())
     );
 
+    private MessageService messageService = new MessageService(new MessageDB("jdbc:postgresql://localhost:5432/facebook", "postgres", "postgres"));
+
     private Scene scene;
     private Parent root;
 
@@ -37,10 +42,18 @@ public class Main extends Application  {
                 root = loader.load();
                 LoginController loginController = loader.getController();
                 loginController.setService(service);
+                loginController.setMessageService(messageService);
                 scene = new Scene(root);
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
                 primaryStage.show();
+
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/chat.fxml"));
+//                root = loader.load();
+//                scene = new Scene(root);
+//                primaryStage.setScene(scene);
+//                primaryStage.setResizable(false);
+//                primaryStage.show();
             }
             catch(Exception e){
                 e.printStackTrace();
@@ -56,4 +69,4 @@ public class Main extends Application  {
 
 
 
-    }
+}

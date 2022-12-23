@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="410.0" prefWidth="571.0" style="-fx-background-color: #04AEC4; -fx-border-color: #1C2E4A; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.SuggestionsController">
+<AnchorPane prefHeight="410.0" prefWidth="571.0" style="-fx-background-color: #04AEC4; -fx-border-color: #1C2E4A; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.SuggestionsController">
    <children>
       <TableView fx:id="suggestionsTable" layoutX="14.0" layoutY="17.0" prefHeight="383.0" prefWidth="300.0" style="-fx-background-color: #30D5C8;">
         <columns>

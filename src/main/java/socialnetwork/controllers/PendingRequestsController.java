@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import socialnetwork.domain.Friendship;
 import socialnetwork.domain.User;
+import socialnetwork.service.MessageService;
 import socialnetwork.service.Service;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 public class PendingRequestsController implements Initializable {
 
     private Service service;
+    private MessageService messageService;
     private User connectedUser;
 
     private Stage stage;
@@ -50,6 +52,7 @@ public class PendingRequestsController implements Initializable {
     public void setService(Service service) {
         this.service = service;
     }
+    public void setMessageService(MessageService messageService) {this.messageService = messageService;}
 
     public void setUser(User user) {
         this.connectedUser = user;
@@ -88,6 +91,7 @@ public class PendingRequestsController implements Initializable {
         ConnectedUserController connectedUserController = loader.getController();
         connectedUserController.setUser(connectedUser);
         connectedUserController.setService(service);
+        connectedUserController.setMessageService(messageService);
         connectedUserController.displayConnectedUser(connectedUser.getFullName());
         connectedUserController.fillTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

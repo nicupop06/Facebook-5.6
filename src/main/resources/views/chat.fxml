@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap_main" prefHeight="396" prefWidth="474.0" style="-fx-background-color: #04AEC4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.ChatController">
+
+    <children>
+        <Button fx:id="sendBtn" layoutX="359.0" layoutY="331.0" onAction="#handleSendMessage" prefHeight="0.0" prefWidth="90.0" stylesheets="@../css/button.css" text="Send" />
+        <TextField fx:id="messageField" layoutX="30" layoutY="338" prefHeight="34.0" prefWidth="316.0" />
+        <ScrollPane fx:id="sp_main" fitToWidth="true" layoutX="30" layoutY="70" prefHeight="256" prefWidth="418">
+            <content>
+                <VBox fx:id="vbox_messages" prefHeight="248" prefWidth="412" />
+            </content>
+        </ScrollPane>
+        <Label fx:id="chatUserLabel" layoutX="30.0" layoutY="26" prefHeight="34.0" prefWidth="358.0">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="23">
+                </Font>
+            </font>
+        </Label>
+      <Button fx:id="backFromChatBtn" layoutX="404.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleBackFromChat" prefHeight="20.0" prefWidth="30.0" stylesheets="@../css/btntest.css" />
+    </children>
+</AnchorPane>

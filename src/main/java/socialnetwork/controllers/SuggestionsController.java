@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import socialnetwork.domain.Friendship;
 import socialnetwork.domain.User;
+import socialnetwork.service.MessageService;
 import socialnetwork.service.Service;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 public class SuggestionsController implements Initializable {
 
     private Service service;
+    private MessageService messageService;
     private User connectedUser;
 
     private Stage stage;
@@ -34,6 +36,9 @@ public class SuggestionsController implements Initializable {
 
     public void setService(Service service) {
         this.service = service;
+    }
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
     }
 
     public void setUser(User user) {
@@ -58,6 +63,7 @@ public class SuggestionsController implements Initializable {
         ConnectedUserController connectedUserController = loader.getController();
         connectedUserController.setUser(connectedUser);
         connectedUserController.setService(service);
+        connectedUserController.setMessageService(messageService);
         connectedUserController.displayConnectedUser(connectedUser.getFullName());
         connectedUserController.fillTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -89,6 +95,7 @@ public class SuggestionsController implements Initializable {
             }
         }
         List<Friendship> existingRequests = service.friendList(connectedUser);
+
         for(Friendship f : existingRequests){
             if(suggestions.contains(service.getUserFromId(f.getId1()))){
                 suggestions.remove(service.getUserFromId(f.getId1()));

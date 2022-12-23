@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import socialnetwork.domain.User;
+import socialnetwork.service.MessageService;
 import socialnetwork.service.Service;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 public class ConnectedUserController implements Initializable {
 
     private Service service;
+    private MessageService messageService;
     private User connectedUser;
 
     private Stage stage;
@@ -80,10 +82,32 @@ public class ConnectedUserController implements Initializable {
     void handleRemoveFriend(ActionEvent event) {
         User selectedUser = friendsTable.getSelectionModel().getSelectedItem();
         if(selectedUser != null){
-
+            messageService.removeMessagesBetweenUsers(connectedUser.getId(), selectedUser.getId());
             service.removeExistingFriendshipBetween(connectedUser.getId(), selectedUser.getId());
             friendsTable.getItems().remove(friendsTable.getSelectionModel().getSelectedItem());
             PopupMessagesController.showMessage(null, Alert.AlertType.INFORMATION, "Info", "Friendship was removed succesfully!");
+        }
+        else
+            PopupMessagesController.showMessage(null, Alert.AlertType.INFORMATION, "Info", "Please select a friendship!");
+    }
+
+    @FXML
+    void handleOpenChat(ActionEvent event) throws IOException {
+        User selectedUser = friendsTable.getSelectionModel().getSelectedItem();
+        if(selectedUser != null){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/chat.fxml"));
+            root = loader.load();
+            ChatController chatController = loader.getController();
+            chatController.setMessageService(messageService);
+            chatController.setService(service);
+            chatController.setConnectedUser(connectedUser);
+            chatController.setChatUser(selectedUser);
+            chatController.displayChatUser(selectedUser.getFullName());
+            chatController.fillChat();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         else
             PopupMessagesController.showMessage(null, Alert.AlertType.INFORMATION, "Info", "Please select a friendship!");
@@ -95,6 +119,7 @@ public class ConnectedUserController implements Initializable {
         root = loader.load();
         LoginController loginController = loader.getController();
         loginController.setService(service);
+        loginController.setMessageService(messageService);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -108,6 +133,7 @@ public class ConnectedUserController implements Initializable {
         root = loader.load();
         RequestsController requestsController = loader.getController();
         requestsController.setService(service);
+        requestsController.setMessageService(messageService);
         requestsController.setUser(connectedUser);
         requestsController.fillRequestsTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -145,7 +171,8 @@ public class ConnectedUserController implements Initializable {
     }
 
 
-
-
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
 }
 

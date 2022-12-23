@@ -52,5 +52,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Button fx:id="chatBtn" layoutX="312.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleOpenChat" prefHeight="48.0" prefWidth="290.0" stylesheets="@../css/button.css" text="Chat">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
