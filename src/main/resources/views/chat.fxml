@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap_main" prefHeight="396" prefWidth="474.0" style="-fx-background-color: #04AEC4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.ChatController">
+<AnchorPane fx:id="ap_main" prefHeight="396" prefWidth="474.0" style="-fx-background-color: #04AEC4;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.ChatController">
 
     <children>
         <Button fx:id="sendBtn" layoutX="359.0" layoutY="331.0" onAction="#handleSendMessage" prefHeight="0.0" prefWidth="90.0" stylesheets="@../css/button.css" text="Send" />

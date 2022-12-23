@@ -35,6 +35,10 @@ public class ConnectedUserController implements Initializable {
     public void setService(Service srv){
         this.service =  srv;
     }
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
 
     public void setUser(User u){
         this.connectedUser = u;
@@ -163,6 +167,7 @@ public class ConnectedUserController implements Initializable {
         root = loader.load();
         PendingRequestsController pendingRequestsController = loader.getController();
         pendingRequestsController.setService(service);
+        pendingRequestsController.setMessageService(messageService);
         pendingRequestsController.setUser(connectedUser);
         pendingRequestsController.fillPendingRequestsTable();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -172,8 +177,5 @@ public class ConnectedUserController implements Initializable {
     }
 
 
-    public void setMessageService(MessageService messageService) {
-        this.messageService = messageService;
-    }
 }
 

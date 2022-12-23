@@ -53,6 +53,11 @@ public class LoginController {
     public void setService(Service srv){
         this.service = srv;
     }
+
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
     @FXML
     public void handleLogin(ActionEvent event) throws IOException {
             String email = emailField.getText();
@@ -129,9 +134,6 @@ public class LoginController {
 
         }
 
-    public void setMessageService(MessageService messageService) {
-        this.messageService = messageService;
-    }
 }
 
 

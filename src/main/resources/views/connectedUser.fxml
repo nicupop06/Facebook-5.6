@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #04AEC4; -fx-border-color: #1C2E4A; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.ConnectedUserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #04AEC4; -fx-border-color: #1C2E4A; -fx-border-width: 5; -fx-background-radius: 10; -fx-border-radius: 0.5;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.controllers.ConnectedUserController">
    <children>
       <TableView fx:id="friendsTable" layoutX="10.0" layoutY="46.0" prefHeight="354.0" prefWidth="290.0" style="-fx-background-color: #30D5C8;" stylesheets="@../css/table.css">
         <columns>
